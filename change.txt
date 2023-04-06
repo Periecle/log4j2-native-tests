@@ -1,0 +1,7 @@
+  {
+    "name": "org.graalvm.log4j2.NativeServiceLoaderUtil",
+    "allDeclaredConstructors": true,
+    "allPublicConstructors": true,
+    "allDeclaredMethods": true,
+    "allPublicMethods": true
+  }

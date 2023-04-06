@@ -1,0 +1,92 @@
+/*
+ * Copyright and related rights waived via CC0
+ *
+ * You should have received a copy of the CC0 legalcode along with this
+ * work. If not, see <http://creativecommons.org/publicdomain/zero/1.0/>.
+ */
+
+import org.graalvm.buildtools.gradle.tasks.BuildNativeImageTask
+
+plugins {
+	id 'java-library'
+	id 'org.graalvm.buildtools.native' version '0.9.20'
+}
+
+dependencies {
+	implementation("org.apache.logging.log4j:log4j-core:2.20.0")
+	compileOnly 'org.apache.logging.log4j:log4j-core:2.20.0:sources'
+	implementation("org.apache.logging.log4j:log4j-slf4j2-impl:2.20.0")
+	compileOnly 'org.apache.logging.log4j:log4j-slf4j2-impl:2.20.0:sources'
+	implementation("org.slf4j:slf4j-api:2.0.7")
+	compileOnly 'org.slf4j:slf4j-api:2.0.7:sources'
+	testImplementation 'org.assertj:assertj-core:3.24.2'
+	testImplementation(platform('org.junit:junit-bom:5.9.2'))
+    testImplementation('org.junit.jupiter:junit-jupiter')
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+		vendor = JvmVendorSpec.matching("Oracle")
+    }
+}
+
+repositories {
+    mavenCentral()     
+}
+
+task copySources(type: Copy) {
+	duplicatesStrategy = DuplicatesStrategy.WARN
+	dependsOn configurations.compileClasspath
+	into "$buildDir/native/nativeTestCompile/sources/dirt"
+
+	// Copy your project's sources
+	from 'src/test/java'
+
+	// Copy sources of dependencies
+	configurations.compileClasspath.resolvedConfiguration.resolvedArtifacts.each { artifact ->
+		if (artifact.type == 'jar' && artifact.classifier == 'sources') {
+			from zipTree(artifact.file)
+		}
+	}
+}
+
+graalvmNative {
+	metadataRepository {
+		enabled = true
+	}
+	binaries {
+		test {
+			buildArgs.addAll('--no-fallback', '-g', '-O0', '-H:-SpawnIsolates', '-H:GenerateDebugInfo=1')
+			debug = true
+			javaLauncher = javaToolchains.launcherFor {
+				languageVersion = JavaLanguageVersion.of(17)
+				vendor = JvmVendorSpec.matching("Oracle")
+			}
+			useFatJar = true
+		}
+		main {
+			debug = true
+			useFatJar = true
+			buildArgs.add("-g -O0")
+			javaLauncher = javaToolchains.launcherFor {
+				languageVersion = JavaLanguageVersion.of(17)
+				vendor = JvmVendorSpec.matching("Oracle")
+			}
+		}
+	}
+	agent {
+		defaultMode = "conditional"
+		modes {
+			conditional {
+				userCodeFilterPath = "user-code-filter.json"
+			}
+		}
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
+
+
