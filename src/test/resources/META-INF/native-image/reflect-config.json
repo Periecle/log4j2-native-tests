@@ -617,26 +617,18 @@
       "typeReachable": "org.apache.logging.log4j.core.config.plugins.util.PluginRegistry"
     },
     "name": "org.apache.logging.log4j.core.appender.ConsoleAppender",
-    "allDeclaredFields": true,
-    "allDeclaredConstructors": true,
-    "allPublicConstructors": true,
-    "allDeclaredMethods": true,
-    "allPublicMethods": true,
-    "allDeclaredClasses" : true,
-    "allPublicClasses": true
+    "methods" : [
+      {
+        "name" : "newBuilder"
+      }
+    ]
   },
   {
     "condition": {
       "typeReachable": "org.apache.logging.log4j.core.config.plugins.util.PluginBuilder"
     },
     "name": "org.apache.logging.log4j.core.appender.ConsoleAppender$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredConstructors": true,
-    "allPublicConstructors": true,
-    "allDeclaredMethods": true,
-    "allPublicMethods": true,
-    "allDeclaredClasses" : true,
-    "allPublicClasses": true
+    "allDeclaredFields": true
   },
   {
     "condition": {
@@ -1004,13 +996,16 @@
       "typeReachable": "org.apache.logging.log4j.core.config.plugins.util.PluginRegistry"
     },
     "name": "org.apache.logging.log4j.core.config.AppenderRef",
-    "allDeclaredFields": true,
-    "allDeclaredConstructors": true,
-    "allPublicConstructors": true,
-    "allDeclaredMethods": true,
-    "allPublicMethods": true,
-    "allDeclaredClasses" : true,
-    "allPublicClasses": true
+    "methods": [
+      {
+        "name": "createAppenderRef",
+        "parameterTypes": [
+          "java.lang.String",
+          "org.apache.logging.log4j.Level",
+          "org.apache.logging.log4j.core.Filter"
+        ]
+      }
+    ]
   },
   {
     "condition": {
@@ -1062,59 +1057,42 @@
       "typeReachable": "org.apache.logging.log4j.core.config.plugins.util.PluginRegistry"
     },
     "name": "org.apache.logging.log4j.core.config.LoggerConfig",
-    "allDeclaredFields": true,
-    "allDeclaredConstructors": true,
-    "allPublicConstructors": true,
-    "allDeclaredMethods": true,
-    "allPublicMethods": true,
-    "allDeclaredClasses": true,
-    "allPublicClasses": true
+    "methods": [
+      {
+        "name": "newBuilder"
+      }
+    ]
   },
   {
     "condition": {
       "typeReachable": "org.apache.logging.log4j.core.config.plugins.util.PluginRegistry"
     },
     "name": "org.apache.logging.log4j.core.config.LoggerConfig$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredConstructors": true,
-    "allPublicConstructors": true,
-    "allDeclaredMethods": true,
-    "allPublicMethods": true,
-    "allDeclaredClasses": true,
-    "allPublicClasses": true
+    "allDeclaredFields": true
   },
   {
     "condition": {
       "typeReachable": "org.apache.logging.log4j.core.config.plugins.util.PluginRegistry"
     },
     "name": "org.apache.logging.log4j.core.config.LoggerConfig$RootLogger",
-    "allDeclaredFields": true,
-    "allDeclaredConstructors": true,
-    "allPublicConstructors": true,
-    "allDeclaredMethods": true,
-    "allPublicMethods": true,
-    "allDeclaredClasses": true,
-    "allPublicClasses": true
+    "methods": [
+      {
+        "name": "newRootBuilder"
+      }
+    ]
   },
   {
     "condition": {
       "typeReachable": "org.apache.logging.log4j.core.config.plugins.util.PluginRegistry"
     },
     "name": "org.apache.logging.log4j.core.config.LoggerConfig$RootLogger$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredConstructors": true,
-    "allPublicConstructors": true,
-    "allDeclaredMethods": true,
-    "allPublicMethods": true,
-    "allDeclaredClasses": true,
-    "allPublicClasses": true
+    "allDeclaredFields": true
   },
   {
     "condition": {
       "typeReachable": "org.apache.logging.log4j.core.config.AbstractConfiguration"
     },
     "name": "org.apache.logging.log4j.core.config.LoggersPlugin",
-    "queryAllDeclaredMethods": true,
     "methods": [
       {
         "name": "createLoggers",
@@ -1681,20 +1659,17 @@
       "typeReachable": "org.apache.logging.log4j.core.config.plugins.util.PluginBuilder"
     },
     "name": "org.apache.logging.log4j.core.config.plugins.visitors.PluginBuilderAttributeVisitor",
-    "allDeclaredConstructors": true,
-    "allPublicConstructors": true,
-    "allDeclaredMethods": true,
-    "allPublicMethods": true
+    "methods": [
+      {
+        "name": "<init>"
+      }
+    ]
   },
   {
     "condition": {
       "typeReachable": "org.apache.logging.log4j.core.config.plugins.util.PluginBuilder"
     },
-    "name": "org.apache.logging.log4j.core.config.plugins.PluginBuilderAttribute",
-    "allDeclaredConstructors": true,
-    "allPublicConstructors": true,
-    "allDeclaredMethods": true,
-    "allPublicMethods": true
+    "name": "org.apache.logging.log4j.core.config.plugins.PluginBuilderAttribute"
   },
   {
     "condition": {
@@ -2024,39 +1999,25 @@
       "typeReachable": "org.apache.logging.log4j.core.config.plugins.util.PluginRegistry"
     },
     "name": "org.apache.logging.log4j.core.layout.PatternLayout",
-    "allDeclaredFields": true,
-    "allDeclaredConstructors": true,
-    "allPublicConstructors": true,
-    "allDeclaredMethods": true,
-    "allPublicMethods": true,
-    "allDeclaredClasses" : true,
-    "allPublicClasses": true
+    "methods": [
+      {
+        "name": "newBuilder"
+      }
+    ]
   },
   {
     "condition": {
       "typeReachable": "org.apache.logging.log4j.core.config.plugins.util.PluginRegistry"
     },
     "name": "org.apache.logging.log4j.core.layout.PatternLayout$Builder",
-    "allDeclaredFields": true,
-    "allDeclaredConstructors": true,
-    "allPublicConstructors": true,
-    "allDeclaredMethods": true,
-    "allPublicMethods": true,
-    "allDeclaredClasses" : true,
-    "allPublicClasses": true
+    "allDeclaredFields": true
   },
   {
     "condition": {
       "typeReachable": "org.apache.logging.log4j.core.config.plugins.util.PluginRegistry"
     },
     "name": "org.apache.logging.log4j.core.layout.PatternLayout$SerializerBuilder",
-    "allDeclaredFields": true,
-    "allDeclaredConstructors": true,
-    "allPublicConstructors": true,
-    "allDeclaredMethods": true,
-    "allPublicMethods": true,
-    "allDeclaredClasses" : true,
-    "allPublicClasses": true
+    "allDeclaredFields": true
   },
   {
     "condition": {
@@ -3071,42 +3032,14 @@
     "queryAllPublicConstructors": true
   },
   {
-    "name": "org.graalvm.log4j2.NativeServiceLoaderUtil",
-    "allDeclaredConstructors": true,
-    "allPublicConstructors": true,
-    "allDeclaredMethods": true,
-    "allPublicMethods": true
-  },
-  {
-    "name": "org.apache.logging.log4j.core.util.TypeUtil",
-    "allDeclaredConstructors": true,
-    "allPublicConstructors": true,
-    "allDeclaredMethods": true,
-    "allPublicMethods": true
-  },
-  {
-    "name": "java.lang.Class",
-    "allDeclaredConstructors": true,
-    "allPublicConstructors": true,
-    "allDeclaredMethods": true,
-    "allPublicMethods": true
-  },
-
-  {
-    "name": "java.lang.Class",
-    "allDeclaredConstructors": true,
-    "allPublicConstructors": true,
-    "allDeclaredMethods": true,
-    "allPublicMethods": true
+    "name": "org.graalvm.log4j2.NativeServiceLoaderUtil"
   },
   {
     "name": "org.apache.logging.log4j.core.config.plugins.visitors.PluginAttributeVisitor",
-    "allDeclaredFields": true,
-    "allDeclaredConstructors": true,
-    "allPublicConstructors": true,
-    "allDeclaredMethods": true,
-    "allPublicMethods": true,
-    "allDeclaredClasses": true,
-    "allPublicClasses": true
+    "methods": [
+      {
+        "name": "<init>"
+      }
+    ]
   }
 ]
